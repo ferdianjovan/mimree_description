@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<robot name="hector">
+  <link name="hector">
+    <inertial>
+      <mass value="11.793"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.662211823" ixy="0" ixz="0" iyy="0.671307886" iyz="0" izz="1.195552488"/>
+    </inertial>
+    <collision name="hector_collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://mimree_description/meshes/mimree_uav/3DXR_IND1000_Body_collision_box.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </collision>
+    <visual name="hector_visual">
+      <origin rpy="0  0  0" xyz="0       0       0.56693"/>
+      <geometry>
+        <mesh filename="package://mimree_description/meshes/mimree_uav/3DXR_IND1000_Body.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>
