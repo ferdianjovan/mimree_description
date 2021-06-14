@@ -24,14 +24,16 @@
 
         <node name="$(arg uav_name)_spawn" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-file $(arg sdf_uav_file) -sdf -x -0.0 -y -0.0 -z 7.12 -R 0. -P 0. -Y 0. -model $(arg uav_name)"/>
         <node name="$(arg uav_name)_altLidar_tf_broadcaster" pkg="mimree_description" type="mimree_tf_broadcaster" args="$(arg uav_name) mimree_uav altLidar" />
-        <node name="$(arg uav_name)_scanningLidar_tf_broadcaster" pkg="mimree_description" type="mimree_tf_broadcaster" args="$(arg uav_name) mimree_uav scanningLidar" />
+        <node name="$(arg uav_name)_scanningLidar_tf_broadcaster" pkg="mimree_description" type="mimree_tf_broadcaster" args="$(arg uav_name) mimree_uav scanningLidar" respawn="true" />
         <node name="$(arg uav_name)_altLidar_to_cloud" pkg="mimree_description" type="laser_to_pc" args="$(arg uav_name) altLidar" />
         <node name="$(arg uav_name)_scanningLidar_to_cloud" pkg="mimree_description" type="laser_to_pc" args="$(arg uav_name) scanningLidar" />
-        <node name="$(arg uav_name)_scanningLidar_wt_detector" pkg="mimree_description" type="edge_wt_detector" args="$(arg uav_name) scanningLidar" />
+        <node name="$(arg uav_name)_scanningLidar_wt_detector" pkg="mimree_description" type="edge_wt_detector" args="$(arg uav_name) scanningLidar" respawn="true" />
 
         <!-- robot description -->
         <node name="spawn_bladebug" pkg="gazebo_ros" type="spawn_model"
-              args="-file $(find bladebug_description)/urdf/bladebug_rotated.urdf -urdf -x 0.14 -y 0.0 -z 7.00 -model $(arg irr_name)"/>
+        args="-file $(find bladebug_description)/urdf/bladebug_rotated.urdf -urdf -x 0.14 -y 0.0 -z 7.00 -model $(arg irr_name)"/>
+        <!-- <node name="spawn_bladebug" pkg="gazebo_ros" type="spawn_model"
+        args="-file $(find bladebug_description)/urdf/bladebug_rotated.urdf -urdf -x 5.14 -y 0.0 -z 7.00 -Y 1.5707 -model $(arg irr_name)"/> -->
 
         <!-- robot description -->
         <param name="robot_description" 
@@ -65,10 +67,10 @@
 
         <node name="$(arg uav_name)_spawn" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-file $(arg sdf_uav_file) -sdf -x -14.0 -y -19.65 -z 2.32 -R 0. -P 0. -Y 0. -model $(arg uav_name)"/>
         <node name="$(arg uav_name)_altLidar_tf_broadcaster" pkg="mimree_description" type="mimree_tf_broadcaster" args="$(arg uav_name) mimree_uav altLidar" />
-        <node name="$(arg uav_name)_scanningLidar_tf_broadcaster" pkg="mimree_description" type="mimree_tf_broadcaster" args="$(arg uav_name) mimree_uav scanningLidar" />
+        <node name="$(arg uav_name)_scanningLidar_tf_broadcaster" pkg="mimree_description" type="mimree_tf_broadcaster" args="$(arg uav_name) mimree_uav scanningLidar" respawn="true" />
         <node name="$(arg uav_name)_altLidar_to_cloud" pkg="mimree_description" type="laser_to_pc" args="$(arg uav_name) altLidar" />
         <node name="$(arg uav_name)_scanningLidar_to_cloud" pkg="mimree_description" type="laser_to_pc" args="$(arg uav_name) scanningLidar" />
-        <node name="$(arg uav_name)_scanningLidar_wt_detector" pkg="mimree_description" type="edge_wt_detector" args="$(arg uav_name) scanningLidar" />
+        <node name="$(arg uav_name)_scanningLidar_wt_detector" pkg="mimree_description" type="edge_wt_detector" args="$(arg uav_name) scanningLidar" respawn="true" />
 
         <node name="$(arg asv_name)_spawn" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-file $(arg sdf_asv_file) -sdf -x -10.0 -y -20.0 -z 0.0 -R 0. -P 0. -Y 0. -model $(arg asv_name)"/>
         <node name="$(arg asv_name)_altLidar_tf_broadcaster" pkg="mimree_description" type="mimree_tf_broadcaster" args="$(arg asv_name) mimree_asv altLidar" />
@@ -77,7 +79,7 @@
         <!-- robot description -->
         <node name="spawn_bladebug" pkg="gazebo_ros" type="spawn_model"
               args="-file $(find bladebug_description)/urdf/bladebug_rotated.urdf -urdf -x -13.86 -y -19.65 -z 2.2 -model $(arg irr_name)"/>
-
+        <!-- x 76.0691 -y -7.0167 -z 102.5440 -Y 1.5707 -->
         <!-- robot description -->
         <param name="robot_description" 
                textfile="$(find bladebug_description)/urdf/bladebug_rotated.urdf"/>
