@@ -52,7 +52,7 @@
 
         <include file="$(find bladebug_bringup)/launch/components/joy_teleop.launch" />
 
-        <node name="Bladebug_Controller" pkg="bladebug_controller" type="bladebug_controller" output="screen" />
+        <node name="Bladebug_Controller" pkg="bladebug_controller" type="bladebug_controller" output="screen" respawn="true" />
     </group>
 
     <group unless="$(arg onshore)">
@@ -97,7 +97,7 @@
 
         <include file="$(find bladebug_bringup)/launch/components/joy_teleop.launch" />
 
-        <node name="Bladebug_Controller" pkg="bladebug_controller" type="bladebug_controller" output="screen" />
+        <node name="Bladebug_Controller" pkg="bladebug_controller" type="bladebug_controller" output="screen" respawn="true" />
     </group>
 
 </launch>
